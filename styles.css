@@ -1,0 +1,56 @@
+.card{
+    height: 12.5rem;
+    width: 100rem;
+    background-color: white;
+    padding: 2rem;
+    margin: 3rem;
+
+    
+.hero{
+    min-height: 70vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-image: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.75)), url("WCorpStation.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-size: 200%;
+    justify-content: center;
+}
+}
+
+.text{
+    padding-bottom: 1rem;
+
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(18rem, 1fr));
+    gap: 1rem;
+    margin: 2rem;
+}
+
+.shop{
+    box-sizing: border-box;
+    background-color: red;
+    padding: 4rem;
+    border-radius: 4rem;
+}
+
+.shop img{
+    max-width: 100%;
+    height: auto;
+}
+
+button{
+    cursor: pointer;
+
+}
+
+body{
+    font-family: "Roboto";
+    background-color: grey;
+}
