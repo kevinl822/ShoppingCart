@@ -51,6 +51,8 @@
 
 button{
     cursor: pointer;
+    border-radius: 1rem;
+    border-width: 0.1rem;
 
 }
 
