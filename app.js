@@ -23,14 +23,14 @@ pokemon = [,
     {name: "Gholdengo", ogRegion:"Paldea", dexNum:1000, price:250000},
 ]
 
-function shop(){
+/*function shop(){
 console.log("Shop here to buy Pokémon")
 for (a = 1; a < pokemon.length; a++){
     console.log(pokemon[a].name,"| No.",pokemon[a].dexNum,"|",pokemon[a].price,"Pokédollars")
 }
 //calculateTotal()
 /*let promptAdd = prompt("Buy a Pokémon by typing its No.","Type Here")
-addToCart(promptAdd)*/
+addToCart(promptAdd)
 return
 }
 
@@ -72,6 +72,7 @@ shop()
 //while(shopping){
  //shop
 //}
+*/
 
 
 
