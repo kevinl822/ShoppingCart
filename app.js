@@ -31,21 +31,19 @@ function inject(item) {
   const container = document.querySelector(".container");
   container.insertAdjacentHTML(
     "beforeend",
-    `<section class="shop" data-item="${item.dexNum}>
-        <h3 class="text"> ${item.name}</h3>
+    `<div class="shop" data-item="${item.dexNum}">
+        <h3 class="text"> ${item.name} </h3>
         <h3 class="text"> No. ${item.dexNum}</h3>
         <h3 class="text"> ${item.ogRegion}</h3>
-        <div class="image">
-        <img src= ${item.img} alt= ${item.name} width="300">
-    </div>
+        <img class="img" src= ${item.img} alt= ${item.name} width="300">
         <button type="button">Add to Cart for ${item.price} Pokédollars</button>
-    </section>`
+    </div>`
   );
 }
 
-for (let i = 0; i < 20; i++){
-    inject(pokemon[i])
-}
+//change this to foreach, its better long term
+
+pokemon.forEach((element) => inject(element))
 
 //RETURNS THE ATTRIBUTE ASSOCIATED WITH THE POKEMON IN THE SHOP THAT HAS THE BUTTON CLICKED//
 //I plan to push the pokemon's data into cart = [] and use that to 
@@ -54,6 +52,7 @@ for (let i = 0; i < 20; i++){
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) =>
   button.addEventListener("click", function (event) {
+    cart.push(event.target.closest(".shop").getAttribute("data-item"))
     console.log(event.target.closest(".shop").getAttribute("data-item"));
   }),
 );
