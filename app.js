@@ -27,7 +27,7 @@ pokemon = [
 
 //INJECT "SHOPS" INTO the container in index.html //
 
-function inject(item) {
+function displayShops(item) {
   const container = document.querySelector(".container");
   container.insertAdjacentHTML(
     "beforeend",
@@ -41,9 +41,21 @@ function inject(item) {
   );
 }
 
+function addcart(item) {
+  const matchedPokemon = pokemon.dexNum.find((element) => element === item)
+  const container = document.querySelector(".cart");
+  container.insertAdjacentHTML(
+    "beforeend",
+    `<div class="card">
+    <p class="text"> ${matchedPokemon.name}</p>
+     <p class="text"> ${matchedPokemon.price}</p>
+    </div>`
+  );
+}
+
 //change this to foreach, its better long term
 
-pokemon.forEach((element) => inject(element))
+pokemon.forEach((element) => displayShops(element))
 
 //RETURNS THE ATTRIBUTE ASSOCIATED WITH THE POKEMON IN THE SHOP THAT HAS THE BUTTON CLICKED//
 //I plan to push the pokemon's data into cart = [] and use that to 
@@ -52,7 +64,7 @@ pokemon.forEach((element) => inject(element))
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) =>
   button.addEventListener("click", function (event) {
-    cart.push(event.target.closest(".shop").getAttribute("data-item"))
+    addcart(event.target.closest(".shop").getAttribute("data-item"))
     console.log(event.target.closest(".shop").getAttribute("data-item"));
   }),
 );

@@ -8,6 +8,13 @@
 
 }
 
+.cart{
+    display: grid;
+    grid-template-columns: repeat(10, minmax(18rem, 1fr));
+    gap: 1rem;
+    margin: 2rem;
+}
+
 .text{
     padding-bottom: 1rem;
     margin-block-start: 0em;
