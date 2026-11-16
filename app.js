@@ -27,6 +27,8 @@ pokemon = [
 
 //INJECT "SHOPS" INTO the container in index.html //
 
+
+
 function displayShops(item) {
   const container = document.querySelector(".container");
   container.insertAdjacentHTML(
@@ -42,13 +44,11 @@ function displayShops(item) {
 }
 
 function addcart(item) {
-  const matchedPokemon = pokemon.dexNum.find((element) => element === item)
-  const container = document.querySelector(".cart");
-  container.insertAdjacentHTML(
+  const cart = document.querySelector(".cart");
+  cart.insertAdjacentHTML(
     "beforeend",
     `<div class="card">
-    <p class="text"> ${matchedPokemon.name}</p>
-     <p class="text"> ${matchedPokemon.price}</p>
+    <p class="text"> ${item}</p>
     </div>`
   );
 }
@@ -64,7 +64,7 @@ pokemon.forEach((element) => displayShops(element))
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) =>
   button.addEventListener("click", function (event) {
-    addcart(event.target.closest(".shop").getAttribute("data-item"))
+    cart.push(event.target.closest(".shop").getAttribute("data-item"));``
     console.log(event.target.closest(".shop").getAttribute("data-item"));
   }),
 );
