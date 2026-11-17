@@ -9,10 +9,13 @@
 }
 
 .cart{
-    display: grid;
-    grid-template-columns: repeat(10, minmax(18rem, 1fr));
-    gap: 1rem;
     margin: 2rem;
+    height: fit-content;
+    min-width: 30rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 4rem;
+
 }
 
 .text{
@@ -23,10 +26,11 @@
 }
 
 .container{
-    display: grid;
-    grid-template-columns: repeat(4, minmax(18rem, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin: 2rem;
+    justify-content: center;
 }
 
 .hero{
@@ -44,9 +48,7 @@
 }
 
 .shop{
-    box-sizing: border-box;
-    max-height: fit-content;
-    max-width: fit-content;
+    max-width: 300px;
     background-color: white;
     color: red;
     font-size: 200%;

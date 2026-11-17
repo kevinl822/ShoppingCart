@@ -33,7 +33,7 @@ function displayShops(item) {
   const container = document.querySelector(".container");
   container.insertAdjacentHTML(
     "beforeend",
-    `<div class="shop" data-item="${item.dexNum}">
+    `<div class="shop" data-item="${item.name} , ${item.price} Pokédollars">
         <h3 class="text"> ${item.name} </h3>
         <h3 class="text"> No. ${item.dexNum}</h3>
         <h3 class="text"> ${item.ogRegion}</h3>
@@ -43,13 +43,15 @@ function displayShops(item) {
   );
 }
 
+//ADDS CART//
+
 function addcart(item) {
   const cart = document.querySelector(".cart");
   cart.insertAdjacentHTML(
     "beforeend",
-    `<div class="card">
-    <p class="text"> ${item}</p>
-    </div>`
+    `
+    <p class="text"> ${item} </p>
+    `
   );
 }
 
@@ -65,6 +67,7 @@ const buttons = document.querySelectorAll("button");
 buttons.forEach((button) =>
   button.addEventListener("click", function (event) {
     cart.push(event.target.closest(".shop").getAttribute("data-item"));``
+    addcart(event.target.closest(".shop").getAttribute("data-item"));``
     console.log(event.target.closest(".shop").getAttribute("data-item"));
   }),
 );
