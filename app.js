@@ -66,8 +66,14 @@ pokemon.forEach((element) => displayShops(element))
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) =>
   button.addEventListener("click", function (event) {
-    cart.push(event.target.closest(".shop").getAttribute("data-item"));``
-    addcart(event.target.closest(".shop").getAttribute("data-item"));``
+    const id = Number(button.getAttribute("data-item"));
+    const selectedPokemon = pokemon.find((p) => p.dexNum === id);
+
+    if (selectedPokemon) {
+      cart.push(selectedPokemon);
+      console.log(selectedPokemon)
+}
+
     console.log(event.target.closest(".shop").getAttribute("data-item"));
   }),
 );
