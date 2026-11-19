@@ -2,6 +2,7 @@
 //DEFINE OBJECTS//
 
 cart = []
+
 pokemon = [
     {name: "Arbok", ogRegion:"Kanto", dexNum:24, price:5500, img:"0024Arbok.png"},
     {name: "Pikachu", ogRegion:"Kanto", dexNum:25, price:100000, img:"0025Pikachu.png"},
@@ -27,18 +28,16 @@ pokemon = [
 
 //INJECT "SHOPS" INTO the container in index.html //
 
-
-
 function displayShops(item) {
   const container = document.querySelector(".container");
   container.insertAdjacentHTML(
     "beforeend",
-    `<div class="shop" data-item="${item.name} , ${item.price} Pokédollars">
+    `<div class="shop">
         <h3 class="text"> ${item.name} </h3>
         <h3 class="text"> No. ${item.dexNum}</h3>
         <h3 class="text"> ${item.ogRegion}</h3>
         <img class="img" src= ${item.img} alt= ${item.name} width="300">
-        <button type="button">Add to Cart for ${item.price} Pokédollars</button>
+        <button type="button" data-item = "${item.dexNum}">Add to Cart for ${item.price} Pokédollars</button>
     </div>`
   );
 }
@@ -50,7 +49,7 @@ function addcart(item) {
   cart.insertAdjacentHTML(
     "beforeend",
     `
-    <p class="text"> ${item} </p>
+    <p class="text"> ${item} </p> <button type="button" data-item = "${item.dexNum}"> Remove </button>
     `
   );
 }
@@ -70,13 +69,18 @@ buttons.forEach((button) =>
     const selectedPokemon = pokemon.find((p) => p.dexNum === id);
 
     if (selectedPokemon) {
-      cart.push(selectedPokemon);
+      cart.push(selectedPokemon.price);
+      cartTotal = 0
+      for (i=0; i<cart.length; i++){
+        cartTotal += cart[i]
+        document.getElementById("total").innerHTML = cartTotal
+      }
+      addcart(selectedPokemon.name + " " + selectedPokemon.price + " Pokédollars")
       console.log(selectedPokemon)
-}
-
-    console.log(event.target.closest(".shop").getAttribute("data-item"));
-  }),
+}}),
 );
+
+w
 
 
 
