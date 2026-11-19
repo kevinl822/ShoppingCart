@@ -71,6 +71,13 @@ button{
     font-size: 50%;
 }
 
+.removebutton{
+    font-size: 15px;
+    margin-bottom: 1rem;
+    border-width: 0.3rem;
+    padding: 0.5rem;
+}
+
 body{
     font-family: "Roboto";
     background-color: black;

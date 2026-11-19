@@ -25,7 +25,6 @@ pokemon = [
     {name: "Granbull", ogRegion:"Johto", dexNum:210, price:4000, img:"0210Granbull.png"},
     {name: "Gholdengo", ogRegion:"Paldea", dexNum:1000, price:250000, img:"1000Gholdengo.png"},
 ]
-
 //INJECT "SHOPS" INTO the container in index.html //
 
 function displayShops(item) {
@@ -48,8 +47,7 @@ function addcart(item) {
   const cart = document.querySelector(".cart");
   cart.insertAdjacentHTML(
     "beforeend",
-    `
-    <p class="text"> ${item} </p> <button type="button" data-item = "${item.dexNum}"> Remove </button>
+    `<p class="text" class="item"> ${item} <button type="button" class= "removebutton" data-item = "${item.dexNum}"> Remove </button> </p> 
     `
   );
 }
@@ -80,63 +78,11 @@ buttons.forEach((button) =>
 }}),
 );
 
-w
-
-
-
-//THIS IS OLD JS CODE, CHOPPED, BUT COULD SALVAGE//
-//Yeah hell no this is absolutely unsalvagable//
-
-/*function shop(){
-console.log("Shop here to buy Pokémon")
-for (a = 1; a < pokemon.length; a++){
-    console.log(pokemon[a].name,"| No.",pokemon[a].dexNum,"|",pokemon[a].price,"Pokédollars")
-}
-//calculateTotal()
-/*let promptAdd = prompt("Buy a Pokémon by typing its No.","Type Here")
-addToCart(promptAdd)
-return
-}
-
-function calculateTotal(){
-total = 0
-for(b = 0; b = cart.length; b++){
-    for(c = 1; c = pokemon.length; c++){
-        if (b === c){
-        total += cart[b].prices
-        }
-    }
-}
-console.log(total)
-return
-}
-
-function addToCart(added){
-for(d = 1; d < pokemon.length; d++){
-    if (added === pokemon[y].No){
-        console.log("Are you sure you want to add",pokemon[d].name," to cart for",pokemon[d].price,"Pokédollars?")
-        console.log("You successfully added", added)
-        cart.push(added)
-    }
-}
-return
-}
-
-function removeFromCart(removed){
-for(d = 1; d < pokemon.length; d++){
-    if (removed === pokemon[y].No){
-        console.log("Are you sure you want to remove",pokemon[d].name,"from the cart?")
-        console.log("You successfully removed", added, "from the cart")
-        cart.remove(added)
-    }
-}
-return
-}
-shop()
-//while(shopping){
- //shop
-//}
+ /* const removebuttons = document.querySelectorAll(".removebutton");
+  removebuttons.forEach((button) =>
+  button.addEventListener("click", function (event) {
+    console.log(event.target.closest(".item").remove());
+    }))
 */
-
 
 
