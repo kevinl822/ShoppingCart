@@ -25,7 +25,7 @@ pokemon = [
     {name: "Granbull", ogRegion:"Johto", dexNum:210, price:4000, img:"0210Granbull.png"},
     {name: "Gholdengo", ogRegion:"Paldea", dexNum:1000, price:250000, img:"1000Gholdengo.png"},
 ]
-//INJECT "SHOPS" INTO the container in index.html //
+//Inject "shops"into the container in index.html //
 
 function displayShops(item) {
   const container = document.querySelector(".container");
@@ -41,24 +41,23 @@ function displayShops(item) {
   );
 }
 
-//ADDS CART//
+pokemon.forEach((element) => displayShops(element))
+
+//Adds items into cart, and also remove buttons//
 
 function addcart(item) {
   const cart = document.querySelector(".cart");
   cart.insertAdjacentHTML(
     "beforeend",
-    `<p class="text" class="item"> ${item} <button type="button" class= "removebutton" data-item = "${item.dexNum}"> Remove </button> </p> 
+    `<p class="text item"> 
+    ${item.name} ${item.price} Pokédollars 
+    <button type= "button" class= "removebutton" data-price="${item.price}" > Remove </button> 
+    </p> 
     `
   );
 }
 
-//change this to foreach, its better long term
-
-pokemon.forEach((element) => displayShops(element))
-
-//RETURNS THE ATTRIBUTE ASSOCIATED WITH THE POKEMON IN THE SHOP THAT HAS THE BUTTON CLICKED//
-//I plan to push the pokemon's data into cart = [] and use that to 
-// calculate the total of the pokemon and also add data to a potential cart section//
+//When you press a button, find the shop that it's in and add it to the cart and push price to cart aswell//
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) =>
@@ -73,16 +72,18 @@ buttons.forEach((button) =>
         cartTotal += cart[i]
         document.getElementById("total").innerHTML = cartTotal
       }
-      addcart(selectedPokemon.name + " " + selectedPokemon.price + " Pokédollars")
+
+      addcart(selectedPokemon)
       console.log(selectedPokemon)
 }}),
 );
 
- /* const removebuttons = document.querySelectorAll(".removebutton");
-  removebuttons.forEach((button) =>
-  button.addEventListener("click", function (event) {
-    console.log(event.target.closest(".item").remove());
-    }))
-*/
+document.querySelector(".cart").addEventListener("click", function (event) {
+  const button = event.target.closest(".removebutton");
+  if (!button) return;
+  button.closest(".item").remove();
 
+  //priceRemoved = number(button.getAttribute("data-price"))
+
+});
 
