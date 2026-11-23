@@ -19,7 +19,7 @@
 }
 
 .text{
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
     margin-block-start: 0em;
     margin-block-end: 0em;
 
@@ -48,12 +48,12 @@
 }
 
 .shop{
-    max-width: 300px;
+    max-width: 220px;
     background-color: white;
     color: red;
     font-size: 200%;
-    padding: 4rem;
-    border-radius: 4rem;
+    padding: 2.5rem;
+    border-radius: 2.5rem;
 }
 
 .shop img{
@@ -81,4 +81,10 @@ button{
 body{
     font-family: "Roboto";
     background-color: black;
+}
+
+.subtotal{
+    display:flex;
+    flex-direction:rows;
+    gap: 10px
 }

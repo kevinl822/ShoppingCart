@@ -74,16 +74,25 @@ buttons.forEach((button) =>
       }
 
       addcart(selectedPokemon)
-      console.log(selectedPokemon)
+      console.log(selectedPokemon) //test//
 }}),
 );
+
+//Remove button, grab ammount removed, and push it to cart as negative, and recalculate total//
 
 document.querySelector(".cart").addEventListener("click", function (event) {
   const button = event.target.closest(".removebutton");
   if (!button) return;
   button.closest(".item").remove();
-
-  //priceRemoved = number(button.getAttribute("data-price"))
-
+  const removal = Number(button.getAttribute("data-price"));
+  cart.push(-removal)
+  console.log(-removal) //test//
+  cartTotal = 0
+      for (i=0; i<cart.length; i++){
+        cartTotal += cart[i]
+        document.getElementById("total").innerHTML = cartTotal
+      }
 });
+
+//Filter//
 
