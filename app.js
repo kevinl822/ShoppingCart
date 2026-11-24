@@ -25,6 +25,7 @@ pokemon = [
     {name: "Granbull", ogRegion:"Johto", dexNum:210, price:4000, img:"0210Granbull.png"},
     {name: "Gholdengo", ogRegion:"Paldea", dexNum:1000, price:250000, img:"1000Gholdengo.png"},
 ]
+
 //Inject "shops"into the container in index.html //
 
 function displayShops(item) {
@@ -95,4 +96,22 @@ document.querySelector(".cart").addEventListener("click", function (event) {
 });
 
 //Filter//
+
+const filterbuttons = document.querySelectorAll("button");
+filterbuttons.forEach((button) =>
+  button.addEventListener("click", function (event) {
+    const filtering = button.getAttribute("data-filter");
+    if (filtering === "filterKanto"){
+      oldShop = document.querySelectorAll('.shop')
+        oldShop.forEach(shop => console.log(shop))
+    } if (filtering === "filterJohto"){
+
+    } if (filtering === "filterPaldea"){
+
+    } if (filtering === "filterAll"){
+
+    }
+  }),
+);
+
 
