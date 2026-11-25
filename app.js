@@ -42,7 +42,7 @@ function displayShops(item) {
   );
 }
 
-pokemon.forEach((element) => displayShops(element))
+pokemon.forEach((mon) => displayShops(mon))
 
 //Adds items into cart, and also remove buttons//
 
@@ -97,21 +97,35 @@ document.querySelector(".cart").addEventListener("click", function (event) {
 
 //Filter//
 
-const filterbuttons = document.querySelectorAll("button");
+const filterbuttons = document.querySelectorAll(".filterButton");
 filterbuttons.forEach((button) =>
   button.addEventListener("click", function (event) {
-    const filtering = button.getAttribute("data-filter");
-    if (filtering === "filterKanto"){
-      oldShop = document.querySelectorAll('.shop')
-        oldShop.forEach(shop => console.log(shop))
-    } if (filtering === "filterJohto"){
+    console.log("It works ig")
+    const filtering = String(button.getAttribute("data-filter"));
+    document.querySelectorAll(".shop").forEach((shop) => shop.remove());
+    if (filtering === "kantoFilter"){
+      pokemon.forEach((mon) => {
+      if (mon.ogRegion === "Kanto") {
+        displayShops(mon);
+      }})
+    } 
+    if (filtering === "johtoFilter"){
+      pokemon.forEach((mon) => {
+      if (mon.ogRegion === "Johto") {
+        displayShops(mon);
+      }})
+    } 
+    if (filtering === "paldeaFilter"){
+      pokemon.forEach((mon) => {
+       if (mon.ogRegion === "Paldea") {
+         displayShops(mon);
+      }})
+    } 
+    if (filtering === "allFilter"){
+      pokemon.forEach((mon) => displayShops(mon))
+      }})
+    );
 
-    } if (filtering === "filterPaldea"){
 
-    } if (filtering === "filterAll"){
-
-    }
-  }),
-);
 
 
